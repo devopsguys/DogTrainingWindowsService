@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DevOpsGuys.DogTrainingWindowsService</id>
+    <version>1.0.0.1</version>
+    <title>DogTrainingWindowsService</title>
+    <authors>Andrzej Jakuszyk</authors>
+    <owners>DevOpsGuys</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Sample project for DOG training using Windows Service</description>
+  </metadata>
+</package>
