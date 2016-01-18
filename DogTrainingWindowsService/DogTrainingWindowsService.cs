@@ -35,7 +35,6 @@ namespace DogTrainingWindowsService
         {
             EventLog.Source = DogLogSource;
             EventLog.Log = DogLog;
-            if (!EventLog.SourceExists(DogLogSource)) { EventLog.CreateEventSource(DogLogSource, DogLog); }
 
             InitializeComponent();
         }
@@ -103,6 +102,12 @@ namespace DogTrainingWindowsService
             OnStart(null);
             Console.ReadLine();
             OnStop();
+        }
+
+        public static void CreateEventLogIfNotExists()
+        {
+            Console.WriteLine(string.Format("Creating {0} Application Event Log", DogLog));
+            if (!EventLog.SourceExists(DogLogSource)) { EventLog.CreateEventSource(DogLogSource, DogLog); }
         }
     }
 }

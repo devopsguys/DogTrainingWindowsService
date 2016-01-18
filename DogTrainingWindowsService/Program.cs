@@ -8,8 +8,14 @@ namespace DogTrainingWindowsService
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        public static void Main()
+        public static void Main(string[] args)
         {
+            if (args[0] == "/CreateEventLog")
+            {
+                DogTrainingWindowsService.CreateEventLogIfNotExists();
+                return;
+            }
+
             if (Environment.UserInteractive)
             {
                 var service = new DogTrainingWindowsService();
