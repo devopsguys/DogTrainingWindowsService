@@ -10,12 +10,6 @@ namespace DogTrainingWindowsService
         /// </summary>
         public static void Main(string[] args)
         {
-            if (args[0] == "/CreateEventLog")
-            {
-                DogTrainingWindowsService.CreateEventLogIfNotExists();
-                return;
-            }
-
             if (Environment.UserInteractive)
             {
                 var service = new DogTrainingWindowsService();

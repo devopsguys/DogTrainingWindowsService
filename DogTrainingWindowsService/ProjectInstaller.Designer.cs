@@ -30,19 +30,19 @@
         {
             this.DogTrainingProcessInstaller = new System.ServiceProcess.ServiceProcessInstaller();
             this.dogTrainingInstaller = new System.ServiceProcess.ServiceInstaller();
-            // 
+            //
             // DogTrainingProcessInstaller
-            // 
+            //
             this.DogTrainingProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalService;
             this.DogTrainingProcessInstaller.Password = null;
             this.DogTrainingProcessInstaller.Username = null;
-            // 
+            //
             // dogTrainingInstaller
-            // 
+            //
             this.dogTrainingInstaller.ServiceName = "DogTrainingWindowsService";
-            // 
+            //
             // ProjectInstaller
-            // 
+            //
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
             this.DogTrainingProcessInstaller,
             this.dogTrainingInstaller});
