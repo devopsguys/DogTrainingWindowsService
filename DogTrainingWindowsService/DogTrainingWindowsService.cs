@@ -73,8 +73,15 @@ namespace DogTrainingWindowsService
                 {
                     EventLog.WriteEntry("Sending new bark: " + newLatestBark.Bark, EventLogEntryType.Information);
 
-                    var twilioClient = new TwilioRestClient(TwilioAccountSid, TwilioAuthToken);
-                    twilioClient.SendMessage(TwilioSenderNumber, TwilioRecipentNumber, "🐶 " + newLatestBark.Bark);
+                    if (!string.IsNullOrWhiteSpace(TwilioAccountSid) && !string.IsNullOrWhiteSpace(TwilioAuthToken))
+                    {
+                        var twilioClient = new TwilioRestClient(TwilioAccountSid, TwilioAuthToken);
+                        twilioClient.SendMessage(TwilioSenderNumber, TwilioRecipentNumber, "🐶 " + newLatestBark.Bark);
+                    }
+                    else
+                    {
+                        EventLog.WriteEntry("Twilio account SID or AuthToken not configured", EventLogEntryType.Warning);
+                    }
 
                     LatestBark = newLatestBark;
                 }
